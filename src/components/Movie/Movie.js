@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classnames from "classnames";
+
+import { configurationContext } from "../../contexts/configuration";
 
 import "./Movie.css";
 
@@ -7,6 +9,7 @@ function Movie(props) {
   const { movie } = props;
   const [selected, setSelected] = useState(false);
   const rootClassNames = classnames('Movie', { Movie__selected: selected });
+  const configuration = useContext(configurationContext);
 
   function handleClick() {
     setSelected(prev => !prev);
@@ -16,7 +19,7 @@ function Movie(props) {
     <div className={rootClassNames} onClick={handleClick}>
       <img
         className="Movie__poster"
-        src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/${configuration.images.poster_sizes[0]}${movie.poster_path}`}
         alt="Movie poster"
         width="92"
         height="138"
