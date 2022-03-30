@@ -1,0 +1,22 @@
+.Pager {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.Pager__page {
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: 0;
+  padding: 0 10px;
+  margin: 0 5px;
+}
+
+.Pager__page--active {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}

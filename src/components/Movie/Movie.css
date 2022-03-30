@@ -1,0 +1,13 @@
+.Movie {
+  display: flex;
+  padding: 10px;
+}
+
+.Movie__poster {
+  margin-right: 10px;
+}
+
+.Movie__selected {
+  background-color: black;
+  color: white;
+}
