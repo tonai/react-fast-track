@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useFocus } from '../../hooks/useFocus';
 
 import "./Search.css";
@@ -21,4 +22,4 @@ function Search(props) {
   );
 }
 
-export default Search;
+export default memo(Search);

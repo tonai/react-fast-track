@@ -1,0 +1,57 @@
+.MoviePlaceholder {
+  display: flex;
+  padding: 10px;
+}
+
+.MoviePlaceholder__content {
+  flex: 1;
+}
+
+.MoviePlaceholder__poster {
+  margin-right: 10px;
+  width: 92px;
+  height: 138px;
+  background: lightgrey;
+  animation: vibration 1s infinite alternate;
+}
+
+.MoviePlaceholder__title {
+  background: lightgrey;
+  width: 30%;
+  height: 1em;
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  animation: vibration 1s infinite alternate;
+}
+
+.MoviePlaceholder__overview-1 {
+  background: lightgrey;
+  width: 90%;
+  height: 1em;
+  animation: vibration 1s infinite alternate;
+}
+
+.MoviePlaceholder__overview-2 {
+  background: lightgrey;
+  width: 95%;
+  height: 1em;
+  margin-top: 2px;
+  animation: vibration 1s infinite alternate;
+}
+
+.MoviePlaceholder__overview-3 {
+  background: lightgrey;
+  width: 20%;
+  height: 1em;
+  margin-top: 2px;
+  animation: vibration 1s infinite alternate;
+}
+
+@keyframes vibration {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

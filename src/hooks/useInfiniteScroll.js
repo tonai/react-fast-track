@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDebouncedValue } from './useDebouncedValue';
 
 export function useInfiniteScroll() {
   const [loading, setLoading] = useState(false);
@@ -8,11 +9,12 @@ export function useInfiniteScroll() {
     results: [],
     total_pages: 1,
   });
+  const debouncedSearch = useDebouncedValue(search);
 
   useEffect(() => {
-    if (search.length > 2) {
+    if (debouncedSearch.length > 2) {
       setLoading(true);
-      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API}&query=${search}&page=${page}`)
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API}&query=${debouncedSearch}&page=${page}`)
         .then(response => response.json())
         .then(json => {
           setMovies(prevState => ({
@@ -28,7 +30,7 @@ export function useInfiniteScroll() {
         total_pages: 1,
       });
     }
-  }, [page, search]);
+  }, [page, debouncedSearch]);
 
   useEffect(() => {
     const scroll = () => {

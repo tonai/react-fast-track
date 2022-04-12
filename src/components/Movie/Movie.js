@@ -1,15 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import classnames from "classnames";
 
-import { configurationContext } from "../../contexts/configuration";
+import { withConfiguration } from '../../hoc/withConfiguration';
 
 import "./Movie.css";
 
 function Movie(props) {
-  const { movie } = props;
+  const { configuration, movie } = props;
   const [selected, setSelected] = useState(false);
   const rootClassNames = classnames('Movie', { Movie__selected: selected });
-  const configuration = useContext(configurationContext);
 
   function handleClick() {
     setSelected(prev => !prev);
@@ -32,4 +31,4 @@ function Movie(props) {
   );
 }
 
-export default Movie;
+export default withConfiguration(Movie);
